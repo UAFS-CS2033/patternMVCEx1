@@ -1,2 +1,2 @@
-# patternMVCEx1
-Conversion of the DAO Pattern Version Two Example to MVC
+# patternMVCv1
+The Conversion of the DAO Pattern Example Version Two to MVC
