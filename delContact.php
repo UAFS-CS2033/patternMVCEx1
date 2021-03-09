@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS 2033 | MVC Confirm Delete</title>
+    <title>CS 2033 | Confirm Delete</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-    
+
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light" style="margin-bottom: 20px">
     <a class="navbar-brand" href="listContacts.php">
         <img src="images/lion.png" width="12%" height="12%" class="d-inline-block align-middle" alt="">
-        CS 2033 Web Systems Model View Controller Example One
+        CS 2033 Web Systems DAO Pattern Example Version 2
     </a>
     </nav>
     <div class="container">
@@ -23,9 +23,8 @@
                         <h5 class="card-title">Delete Contact</h5>
                         <p class="card-text">Confirm Deletion of Contact from the list.</p>
                         <form action="controller.php" method="POST">
-                            <input type="hidden" name="contactID" value="<?php echo $contactid; ?>">
                             <input type="hidden" name="page" value="delete">
-                            <p><?php echo $contact->getUsername().":".$contact->getEmail(); ?></p>
+                            <input type="hidden" name="contactID" value="<?php echo $contactid; ?>">
                             <button class="btn btn-primary" type="submit" name="submit" value="CONFIRM" >Confirm</button> 
                             <button class="btn btn-primary" type="submit" name="submit" value="CANCEL" >Cancel</button>   
                         </form>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS 2033 | MVC Add Contact</title>
+    <title>CS 2033 | Add Contact</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <nav class="navbar navbar-light bg-light" style="margin-bottom: 20px">
     <a class="navbar-brand" href="listContacts.php">
         <img src="images/lion.png" width="12%" height="12%" class="d-inline-block align-middle" alt="">
-        CS 2033 Web Systems Model View Controller Example One
+        CS 2033 Web Systems DAO Pattern Example Version 2
     </a>
     </nav>
     <div class="container">
@@ -23,7 +23,7 @@
                         <h5 class="card-title">Mailing List</h5>
                         <p class="card-text">Add a new contact to the list.</p>
                         <form action="controller.php" method="POST">
-                        <input type="hidden" name="page" value="add">
+                            <input type="hidden" name="page" value="add">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control mb-3" id="username" name="username" placeholder="Enter your Username" required>
                             <label for="email" class="form-label">Email</label>

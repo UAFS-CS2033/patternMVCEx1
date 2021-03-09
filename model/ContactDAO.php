@@ -45,19 +45,6 @@
             return $contacts;
         }
 
-        public function getContact($contactid){
-            $connection=$this->getConnection();
-            $stmt = $connection->prepare("SELECT * FROM contacts WHERE contactID = ?");
-            $stmt->bind_param("i", $contactid); 
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $row = $result->fetch_assoc();
-            $contact = new Contact();
-            $contact->load($row); 
-            $stmt->close();
-            $connection->close();
-            return $contact;
-        }
 
 
     }

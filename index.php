@@ -1,3 +1,25 @@
+<?php
+    require 'model/ContactDAO.php';
+
+    if(isset($_GET['submit'])){
+        $submit = $_GET['submit'];
+        $contactid = $_GET['contactID'];
+        if($submit=="ADD"){
+            header("Location: addContact.php");
+            exit;
+        }
+        if($submit=="DELETE"){
+            $header="Location: delContact.php?contactID=".$contactid;
+            header($header);
+            exit;
+        }
+
+    }
+
+
+    $contactDAO = new ContactDAO();
+    $contacts=$contactDAO->getContacts();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +39,9 @@
     </nav>
     <div class="container">
         <div class="col">
-            <form action="controller.php" method="GET">
-            <button class="btn btn-primary" type="submit" name="page" value="add">Add Contact</button>
-            <button class="btn btn-primary" type="submit" name="page" value="delete">Delete Contact</button>
+            <form action="index.php" method="GET">
+            <button class="btn btn-primary" type="submit" name="submit" value="ADD">Add Contact</button>
+            <button class="btn btn-primary" type="submit" name="submit" value="DELETE">Delete Contact</button>
             <table class="table table-bordered table-striped">
                 <thead><tr><th>Contact ID</th><th>User Name</th><th>Email</th></tr></thead>
                 <tbody>
