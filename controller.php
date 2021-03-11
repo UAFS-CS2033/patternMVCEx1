@@ -1,56 +1,39 @@
 <?php 
+    
+    include "ContactControllers.php";
 
-    require 'model/ContactDAO.php';
+    showErrors(1);
+
+    $controllers=loadControllers();
 
     $method = $_SERVER['REQUEST_METHOD'];
+    $page = $_REQUEST['page'];
 
+    $controller=$controllers[$method.$page];
     if($method=='GET'){
-        $page = $_GET['page'];
-
-        if($page=="list"){
-            $contactDAO = new ContactDAO();
-            $contacts=$contactDAO->getContacts();
-            include 'listContact.php';
-        }
-
-        if($page=='add'){
-            include 'addContact.php';
-        }
-
-        if($page=='delete'){
-            $contactid = $_GET['contactID'];
-            include 'delContact.php';
-        }
-
+        $controller->processGET();
     }
-
     if($method=='POST'){
-        $page = $_POST['page'];
-
-        if($page=='add'){
-            $username=$_POST['username'];
-            $email=$_POST['email'];
-            $contact = new Contact();
-            $contact->setUsername($username);
-            $contact->setEmail($email);
-            $contactDAO = new ContactDAO();
-            $contactDAO->addContact($contact);
-            header("Location: controller.php?page=list");
-            exit;
-        }
-
-        if($page=='delete'){
-            $contactid=$_POST['contactID'];
-            $submit=$_POST['submit'];
-            if($submit=='CONFIRM'){
-                $contactDAO = new ContactDAO();
-                $contactDAO->deleteContact($contactid);
-            }
-            header("Location: controller.php?page=list");
-            exit;
-        }
-
+        $controller->processGET();
     }
 
+
+    function loadControllers(){
+        $controllers["GET"."list"] = new ContactList();
+        $controllers["GET"."add"] = new ContactAdd();
+        $controllers["GET"."delete"] = new ContactDelete();
+        $controllers["POST"."add"] = new ContactAdd();
+        $controllers["POST"."delete"] = new ContactDelete();
+
+        return $controllers;
+    }
+
+    function showErrors($debug){
+        if($debug==1){
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+        }
+    }
 
 ?>
