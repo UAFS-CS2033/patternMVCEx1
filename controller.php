@@ -14,7 +14,7 @@
         $controller->processGET();
     }
     if($method=='POST'){
-        $controller->processGET();
+        $controller->processPOST();  // Corrected Error from Class changed from processGET()
     }
 
 

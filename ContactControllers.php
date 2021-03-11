@@ -23,7 +23,15 @@
         }
 
         function processPOST(){
-            return;
+            $username=$_POST['username'];
+            $email=$_POST['email'];
+            $contact = new Contact();
+            $contact->setUsername($username);
+            $contact->setEmail($email);
+            $contactDAO = new ContactDAO();
+            $contactDAO->addContact($contact);
+            header("Location: controller.php?page=list");
+            exit;
         }
 
     }
@@ -36,7 +44,14 @@
         }
 
         function processPOST(){
-            return;
+            $contactid=$_POST['contactID'];
+            $submit=$_POST['submit'];
+            if($submit=='CONFIRM'){
+                $contactDAO = new ContactDAO();
+                $contactDAO->deleteContact($contactid);
+            }
+            header("Location: controller.php?page=list");
+            exit;
         }
 
     }
