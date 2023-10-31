@@ -7,7 +7,7 @@
         function processGET(){
             $contactDAO = new ContactDAO();
             $contacts=$contactDAO->getContacts();
-            include 'listContact.php';
+            include 'views/listContact.php';
         }
 
         function processPOST(){
@@ -19,7 +19,7 @@
     class ContactAdd implements ControllerAction{
 
         function processGET(){
-            include 'addContact.php';
+            include 'views/addContact.php';
         }
 
         function processPOST(){
@@ -40,7 +40,7 @@
 
         function processGET(){
             $contactid = $_GET['contactID'];
-            include 'delContact.php';
+            include 'views/delContact.php';
         }
 
         function processPOST(){
